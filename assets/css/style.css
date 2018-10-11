@@ -1,7 +1,6 @@
 body {
     color: white;
     background-color:#00b9d3;
-    /* #00b9d3 */
 }
 
 #title-area {
@@ -46,6 +45,15 @@ body {
     background-color: #0083a5;
 }
 
+#blanks {
+    letter-spacing: 2px;
+    font-size: 25px;
+}
+
+#guesses {
+    letter-spacing: 2px;
+    font-size: 25px;
+}
 #stats-area {
     height: 300px;
     position: relative;
@@ -61,12 +69,6 @@ body {
     transform: translateX(-50%);
 }
 
-#blanks {
-    letter-spacing: 2px;
-    font-size: 25px;
-}
+/* RECLOR GAME-AREA */
 
-#guesses {
-    letter-spacing: 2px;
-    font-size: 25px;
-}
+

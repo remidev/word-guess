@@ -6,10 +6,20 @@ var $guessCount = document.getElementById('guess-count');
 var $wins = document.getElementById('wins');
 var $losses = document.getElementById('losses');
 
+//DOM ELEMENT FOR RECOLOR ON WIN
+var $gameArea = document.getElementById("game-area");
+
 //INITIALIZE GAME OBJECT
 var game = {
-    //TODO: FILL WORD ARRAY
-    wordArr: ["Abc Def"],
+
+    wordArr:[   
+                "Green","Teal","Dark Cyan","Deep Sky Blue",
+                "Dark Turquoise","Medium Spring Green",
+                "Lime","Spring Green","Aqua","Midnight Blue",
+                "Dodger Blue","Light Sea Green","Forest Green",
+                "Dark Slate Gray","Royal Blue","Steel Blue"
+            ],
+
     wins: 0,
     losses: 0,
     guessCount: 10,
@@ -22,6 +32,9 @@ var game = {
 
     // MAIN METHOD
     newGame: function () {
+
+        // RESET GAME-AREA COLOR
+        $gameArea.style.backgroundColor = "#0083a5";
 
         // RESET GAME
         this.gameActive = true;
@@ -49,6 +62,8 @@ var game = {
 
         //REMOVE
         console.log("game reset", game);
+        //IM A LAZY DIRTY CHEATER
+        console.log(this.targetWord);
     },
 
 
@@ -56,13 +71,12 @@ var game = {
     checkGuess: function (guess) {
 
         // IF GAME IS RUNNING & NEW VALID KEY GUESSED
-        // TODO: SEE IF LACK OF CASE CHECKING IS AN ISSUE HERE
         if (this.gameActive && !this.guessesArr.includes(guess)) {
 
             //ADD KEY TO GUESSES
             this.guessesArr.push(guess);
 
-            //CHECK TARGET WORD FOR KEY
+            //CHECK TARGET WORD FOR GUESS
             for (var i = 0; i < this.targetWord.length; i++) {
                 //CONVERT CASE & COMPARE
                 if (this.targetWord[i].toLocaleLowerCase() === guess.toLocaleLowerCase()) {
@@ -73,7 +87,7 @@ var game = {
             //UPDATE BLANKS WITH CORRECT GUESSES
             $blanks.textContent = this.targetWordBlanks.join('');
 
-            //CHECK INCORRECT
+            //CHECK FOR INCORRECT GUESS
             this.checkIncorrect(guess)
 
             // ALERTS FOR DUPLICATE GUESS OR KEYPRESS BEFORE GAME START
@@ -88,6 +102,7 @@ var game = {
 
     //INCORRECT GUESS
     checkIncorrect: function (guess) {
+        // IF GUESS PASSED THROUGH CHECK-GUESS FUNCTION ABOVE AND IS NOT ALREADY IN THE IN-PROGRESS STRING
         if (!this.targetWordBlanks.includes(guess.toLowerCase()) && !this.targetWordBlanks.includes(guess.toUpperCase())) {
             this.guessCount--;
             this.incorrectGuessesArr.push(guess.toUpperCase());
@@ -114,19 +129,21 @@ var game = {
             this.wins++
             this.gameActive = false;
             $wins.textContent = this.wins;
+            //RECOLOR GAME-AREA ON WIN
+            $gameArea.style.backgroundColor = this.targetWord.replace(/\s+/g, '');
         }
     }
 
 };
 
-//WHEN BUTTON IS CLICKED, CALL NEWGAME FUNCTION 
+//WHEN BUTTON IS CLICKED, CALL NEW-GAME FUNCTION 
 $newGameBtn.addEventListener('click', function () {
     game.newGame();
-    //UNFOCUS BUTTON TO PREVENT SPACEBAR FROM RESTARTING GAME 
+    //UNFOCUS BUTTON TO PREVENT SPACEBAR FROM RESTARTING GAME
     this.blur()
 });
 
-//VERIFY INPUT IS A-Z
+//VERIFY INPUT IS A-Z THEN PASS TO CHECK FUNCTION
 document.onkeyup = function (event) {
     if (event.keyCode >= 65 && event.keyCode <= 90) {
         game.checkGuess(event.key);
