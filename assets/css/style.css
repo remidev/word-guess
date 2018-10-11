@@ -1,0 +1,72 @@
+body {
+    color: white;
+    background-color:#00b9d3;
+    /* #00b9d3 */
+}
+
+#title-area {
+    background-color: #0069a5;
+    background-image: url("../images/#");
+    background-size: cover;
+    background-blend-mode: multiply;
+}
+
+#new-game-btn {
+    outline: none;
+    border: none; 
+    cursor: pointer;
+    display: block;
+    background-color: #00b9d3;
+    position: relative;
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 6px darkslategray;
+}
+
+#new-game-btn:hover {
+    box-shadow: 0 5px darkslategray;
+    top: 1px;
+}
+
+#new-game-btn:active {
+    box-shadow: 0 0 darkslategray;
+    top: 6px;
+}
+
+#new-game-btn p {
+    margin: auto
+}
+
+#game-area {
+    background-color: #0083a5;
+}
+
+#stats-area {
+    height: 300px;
+    position: relative;
+    background-color: #00b9d3;
+}
+
+#stats-area h3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translateY(-50%);
+    transform: translateX(-50%);
+}
+
+#blanks {
+    letter-spacing: 2px;
+    font-size: 25px;
+}
+
+#guesses {
+    letter-spacing: 2px;
+    font-size: 25px;
+}

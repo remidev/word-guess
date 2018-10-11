@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>Word Guess</title>
+
+    <!-- BOOTSTRAP CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <!-- FONT AWESOME SVG & JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+
+
+</head>
+
+<body>
+    <!-- TITLE & NEW GAME BUTTON -->
+    <div class="jumbotron-fluid py-5" id="title-area">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-8 my-5" align="center">
+                    <h1>Word Guess Game</h1>
+                </div>
+                <div class="col-12 col-md-4 my-5" align="center">
+                    <button id="new-game-btn">
+                        <P><i class="fas fa-gamepad"></i>  New Game  </p>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- TARGET WORD BLANKS & INCORRECT GUESSES  -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 text-center py-5" id="game-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-md-6 my-5">
+                            <h2>Fill In The Blanks:</h2>
+                            <br />
+                            <span id="blanks">______</span>
+                        </div>
+                        <div class="col-12 col-md-6 my-5">
+                            <h2>Incorrect Guesses:</h2>
+                            <br />
+                            <span id="guesses"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- GUESSES REMAINING & SCORE -->
+        <div class="row" id="stats-area">
+            <div class="col-12 col-md-4 text-center py-5">
+                <h3>Guesses left: <span id="guess-count">10</span></h3>
+            </div>
+            <div class="col-12 col-md-4 text-center py-5">
+                <h3>Rounds Won: <span id="wins">0</span></h3>
+            </div>
+            <div class="col-12 col-md-4 text-center py-5">
+                <h3>Rounds Lost: <span id="losses">0</span></h3>
+            </div>
+        </div>
+    </div>
+    <!-- BOOTSTRAP JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <!-- GAME OBJECT JS -->
+    <script src="assets/javascript/game.js"></script>
+
+</body>
+
+</html>
