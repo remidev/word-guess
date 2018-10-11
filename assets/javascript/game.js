@@ -136,6 +136,14 @@ var game = {
 
 };
 
+//CODE TO GET KEYBOARD TO OPEN ON MOBILE?
+var target = document.getElementsByTagName("input")[0];
+
+if (event.target != target) {
+    target.focus();
+    target.click();
+}
+
 //WHEN BUTTON IS CLICKED, CALL NEW-GAME FUNCTION 
 $newGameBtn.addEventListener('click', function () {
     game.newGame();
